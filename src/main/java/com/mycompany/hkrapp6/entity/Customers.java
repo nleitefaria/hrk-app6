@@ -21,6 +21,8 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  *
  * @author nleitefaria
@@ -90,6 +92,7 @@ public class Customers implements Serializable {
     @Lob
     @Column(name = "attachments")
     private byte[] attachments;
+    @JsonIgnore
     @OneToMany(mappedBy = "customerId")
     private List<Orders> ordersList;
 
