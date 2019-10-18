@@ -24,6 +24,8 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  *
  * @author nleitefaria
@@ -97,10 +99,13 @@ public class Employees implements Serializable {
         @JoinColumn(name = "employee_id", referencedColumnName = "id")}, inverseJoinColumns = {
         @JoinColumn(name = "privilege_id", referencedColumnName = "id")})
     @ManyToMany
+    @JsonIgnore
     private List<Privileges> privilegesList;
     @OneToMany(mappedBy = "createdBy")
+    @JsonIgnore
     private List<PurchaseOrders> purchaseOrdersList;
     @OneToMany(mappedBy = "employeeId")
+    @JsonIgnore
     private List<Orders> ordersList;
 
     public Employees() {
