@@ -23,6 +23,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  *
  * @author nleitefaria
@@ -59,8 +61,10 @@ public class Invoices implements Serializable {
     private BigDecimal shipping;
     @Column(name = "amount_due")
     private BigDecimal amountDue;
+    
     @JoinColumn(name = "order_id", referencedColumnName = "id")
-    @ManyToOne
+    @ManyToOne   
+    @JsonIgnore
     private Orders orderId;
 
     public Invoices() {
