@@ -23,6 +23,8 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  *
  * @author nleitefaria
@@ -83,10 +85,16 @@ public class Products implements Serializable {
     @Lob
     @Column(name = "attachments")
     private byte[] attachments;
+    
+    @JsonIgnore
     @OneToMany(mappedBy = "productId")
     private List<OrderDetails> orderDetailsList;
+    
+    @JsonIgnore
     @OneToMany(mappedBy = "productId")
     private List<PurchaseOrderDetails> purchaseOrderDetailsList;
+    
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "productId")
     private List<InventoryTransactions> inventoryTransactionsList;
 
