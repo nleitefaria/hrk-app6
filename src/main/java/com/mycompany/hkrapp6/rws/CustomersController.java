@@ -13,7 +13,7 @@ import com.mycompany.hkrapp6.entity.Customers;
 import com.mycompany.hkrapp6.service.CustomersService;
 
 @RestController
-@RequestMapping("/api/v1/customertest")
+@RequestMapping("/api/v1/customer")
 public class CustomersController {
 	
 	@Autowired
