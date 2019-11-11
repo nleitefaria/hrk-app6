@@ -11,7 +11,7 @@
 	<groupId>com.mycompany.hkrapp6</groupId>
 	<artifactId>hrk-app6</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>hrk-app5</name>
+	<name>hrk-app6</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
