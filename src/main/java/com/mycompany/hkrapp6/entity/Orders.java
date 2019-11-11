@@ -28,6 +28,8 @@ import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  *
  * @author nleitefaria
@@ -92,26 +94,42 @@ public class Orders implements Serializable {
     private String notes;
     @Column(name = "tax_rate")
     private Double taxRate;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "orderId")
+    @JsonIgnore
     private List<OrderDetails> orderDetailsList;
+    
     @OneToMany(mappedBy = "orderId")
+    @JsonIgnore
     private List<Invoices> invoicesList;
+    
     @OneToMany(mappedBy = "customerOrderId")
+    @JsonIgnore
     private List<InventoryTransactions> inventoryTransactionsList;
+    
     @JoinColumn(name = "customer_id", referencedColumnName = "id")
     @ManyToOne
+    @JsonIgnore
     private Customers customerId;
+    
     @JoinColumn(name = "employee_id", referencedColumnName = "id")
     @ManyToOne
+    @JsonIgnore
     private Employees employeeId;
+    
     @JoinColumn(name = "status_id", referencedColumnName = "id")
     @ManyToOne
+    @JsonIgnore
     private OrdersStatus statusId;
+    
     @JoinColumn(name = "tax_status_id", referencedColumnName = "id")
     @ManyToOne
+    @JsonIgnore
     private OrdersTaxStatus taxStatusId;
+    
     @JoinColumn(name = "shipper_id", referencedColumnName = "id")
     @ManyToOne
+    @JsonIgnore
     private Shippers shipperId;
 
     public Orders() {
