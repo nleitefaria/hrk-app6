@@ -10,6 +10,8 @@ import com.mycompany.hkrapp6.entity.Customers;
 import com.mycompany.hkrapp6.repository.CustomersRepository;
 import com.mycompany.hkrapp6.service.CustomersService;
 
+import org.springframework.data.domain.Sort;
+
 @Service
 public class CustomersServiceImpl implements CustomersService {
 	
@@ -28,7 +30,7 @@ public class CustomersServiceImpl implements CustomersService {
 	
 	public Page<Customers> findAllPaged(int page) 
     {
-        return repository.findAll(PageRequest.of(page, 10));
+        return repository.findAll(PageRequest.of(page, 10, Sort.by(Sort.Direction.DESC,"id")));
     }
 	
 }
