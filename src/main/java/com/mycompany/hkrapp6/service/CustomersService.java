@@ -10,6 +10,7 @@ public interface CustomersService {
 	
 	Long count();
 	List<Customers> findAll();
-	Page<Customers> findAllPaged(int page) ;
+	Page<Customers> findAllPaged(int page);
+	Customers save(Customers customer);
 
 }
