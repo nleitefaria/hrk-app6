@@ -45,13 +45,11 @@ public class CustomersController {
         System.out.println("Creating customer"); 	
 		try
 		{
-			service.save(customer);
-			System.out.println("Done");
+			service.save(customer);			
 			return new ResponseEntity<Customers>(HttpStatus.CREATED);
 		}
 		catch(Exception e)
 		{
-			System.out.println("An error ocurred while creating the entity");
 			return new ResponseEntity<Customers>(HttpStatus.BAD_REQUEST);					
 		}	
     }
