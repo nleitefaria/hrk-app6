@@ -10,5 +10,6 @@ public interface SuppliersService {
 	Long count();
 	List<Suppliers> findAll();
 	Page<Suppliers> findAllPaged(int page);
-
+	Suppliers save(Suppliers customer);
+	
 }
