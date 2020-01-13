@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mycompany.hkrapp6.entity.Customers;
 import com.mycompany.hkrapp6.entity.Employees;
 import com.mycompany.hkrapp6.service.EmployeesService;
 

@@ -7,7 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-
+import org.springframework.transaction.annotation.Transactional;
 import com.mycompany.hkrapp6.entity.Suppliers;
 import com.mycompany.hkrapp6.repository.SuppliersRepository;
 import com.mycompany.hkrapp6.service.SuppliersService;
@@ -31,6 +31,12 @@ public class SuppliersServiceImpl implements SuppliersService{
 	public Page<Suppliers> findAllPaged(int page) 
     {
         return repository.findAll(PageRequest.of(page, 10, Sort.by(Sort.Direction.DESC,"id")));
+    }
+	
+	@Transactional
+	public Suppliers save(Suppliers suppliers) 
+    {
+        return repository.save(suppliers);
     }
 
 }
