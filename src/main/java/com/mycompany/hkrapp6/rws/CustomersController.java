@@ -25,7 +25,6 @@ public class CustomersController {
 	
 	@GetMapping("/count")
 	public Long count() {
-		//Count
 	    return service.count();
 	}
 	
@@ -42,7 +41,6 @@ public class CustomersController {
 	@PostMapping("/")
     public ResponseEntity<Customers> create(@RequestBody Customers customer)
 	{       
-        System.out.println("Creating customer"); 	
 		try
 		{
 			service.save(customer);			
