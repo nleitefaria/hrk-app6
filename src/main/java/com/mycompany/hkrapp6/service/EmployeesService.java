@@ -11,5 +11,6 @@ public interface EmployeesService {
 	Long count();
 	List<Employees> findAll();
 	Page<Employees> findAllPaged(int page);
+	Employees save(Employees employee);
 
 }
