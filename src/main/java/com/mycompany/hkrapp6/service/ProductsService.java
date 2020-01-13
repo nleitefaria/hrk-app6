@@ -11,5 +11,6 @@ public interface ProductsService {
 	Long count();
 	List<Products> findAll();
 	Page<Products> findAllPaged(int page);
+	Products save(Products product);
 
 }

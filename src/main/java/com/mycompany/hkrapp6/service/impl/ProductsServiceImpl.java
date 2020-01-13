@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.mycompany.hkrapp6.entity.Products;
 import com.mycompany.hkrapp6.repository.ProductsRepository;
@@ -31,6 +32,12 @@ public class ProductsServiceImpl implements ProductsService{
 	public Page<Products> findAllPaged(int page) 
     {
         return repository.findAll(PageRequest.of(page, 10, Sort.by(Sort.Direction.DESC,"id")));
+    }
+	
+	@Transactional
+	public Products save(Products product) 
+    {
+        return repository.save(product);
     }
 
 }
