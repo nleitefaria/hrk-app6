@@ -9,5 +9,6 @@ public interface ShippersService
 	Long count();
 	List<Shippers> findAll();
 	Page<Shippers> findAllPaged(int page);
+	Shippers save(Shippers shipper);
 	
 }
