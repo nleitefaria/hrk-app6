@@ -1,6 +1,9 @@
 package com.mycompany.hkrapp6.service.impl;
 
 import java.util.List;
+import java.util.Optional;
+
+import javax.persistence.Column;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -25,6 +28,11 @@ public class CustomersServiceImpl implements CustomersService {
 		return repository.count();
 	}
 	
+	public Optional<Customers> findById(int id)
+	{
+		return repository.findById(id);
+	}
+	
 	public List<Customers> findAll()
 	{
 		return repository.findAll();
@@ -40,5 +48,40 @@ public class CustomersServiceImpl implements CustomersService {
     {
         return repository.save(customer);
     }
+	
+	@Transactional
+	public Customers update(Customers customer) 
+    {	
+		if(customer != null)
+		{
+			return repository.save(customer);
+		}	
+        return null;
+    }
+
+	@Override
+	public Customers update(int id, Customers newCustomer) {		
+		Optional<Customers> c = repository.findById(id);		
+		Customers customer = c.get();				
+		if(customer != null)
+		{			
+			if(newCustomer.getCompany() != null)
+			{
+				customer.setCompany(newCustomer.getCompany());
+			}
+			
+			if(newCustomer.getLastName() != null)
+			{
+				customer.setLastName(newCustomer.getLastName());				
+			}
+			
+			if(newCustomer.getFirstName() != null)
+			{
+				customer.setFirstName(newCustomer.getFirstName());		
+			}			
+			return repository.save(customer);	
+		}	
+        return null;
+	}
 	
 }
