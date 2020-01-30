@@ -3,8 +3,6 @@ package com.mycompany.hkrapp6.service.impl;
 import java.util.List;
 import java.util.Optional;
 
-import javax.persistence.Column;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -78,7 +76,63 @@ public class CustomersServiceImpl implements CustomersService {
 			if(newCustomer.getFirstName() != null)
 			{
 				customer.setFirstName(newCustomer.getFirstName());		
-			}			
+			}
+			
+			if(newCustomer.getJobTitle() != null)
+			{
+				customer.setJobTitle(newCustomer.getJobTitle());		
+			}
+			
+			if(newCustomer.getBusinessPhone() != null)
+			{
+				customer.setBusinessPhone(newCustomer.getBusinessPhone());		
+			}
+			
+			if(newCustomer.getHomePhone() != null)
+			{
+				customer.setHomePhone(newCustomer.getHomePhone());		
+			}
+			
+			if(newCustomer.getMobilePhone() != null)
+			{
+				customer.setMobilePhone(newCustomer.getMobilePhone());		
+			}
+			
+			if(newCustomer.getFaxNumber() != null)
+			{
+				customer.setFaxNumber(newCustomer.getFaxNumber());		
+			}
+			
+			if(newCustomer.getAddress() != null)
+			{
+				customer.setAddress(newCustomer.getAddress());		
+			}
+			
+			if(newCustomer.getCity() != null)
+			{
+				customer.setCity(newCustomer.getCity());		
+			}
+			
+			if(newCustomer.getStateProvince() != null)
+			{
+				customer.setStateProvince(newCustomer.getStateProvince());		
+			}
+			
+			if(newCustomer.getZipPostalCode() != null)
+			{
+				customer.setZipPostalCode(newCustomer.getZipPostalCode());		
+			}
+			
+			if(newCustomer.getCountryRegion() != null)
+			{
+				customer.setCountryRegion(newCustomer.getCountryRegion());		
+			}
+			
+			if(newCustomer.getWebPage() != null)
+			{
+				customer.setWebPage(newCustomer.getWebPage());		
+			}
+
 			return repository.save(customer);	
 		}	
         return null;
